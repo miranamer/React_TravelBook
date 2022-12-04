@@ -1,10 +1,31 @@
 import React, {useState} from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { UserAuth } from '../context/AuthContext';
+import { db } from '../firebase';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
 const Card = ({imageURL, country, city}) => {
 
     const [hover, setHover] = useState(false);
     const [like, setLike] = useState(false);
+    const { user } = UserAuth();
+
+    const locationID = doc(db, 'users', `${user?.email}`);
+
+    const saveLocation = async () => {
+        if (user?.email) {
+          setLike(!like);
+          await updateDoc(locationID, {
+            savedLocations: arrayUnion({
+              id: country,
+              title: city,
+              img: imageURL,
+            }),
+          });
+        } else {
+          alert('Please log in to save a movie');
+        }
+      };
 
     function changeBackground(e) {
         setHover(true);
@@ -14,9 +35,7 @@ const Card = ({imageURL, country, city}) => {
         setHover(false);
     }
 
-    const handleLike = () => {
-        setLike(!like);
-    }
+    
 
   return (
     <>
@@ -31,7 +50,7 @@ const Card = ({imageURL, country, city}) => {
                 </div>
                 
                 <div className="top-4 text-white absolute right-4 text-3xl">
-                    <p onClick={handleLike} className=''>{like ? <p className='text-red-400'><AiFillHeart /></p> : <AiOutlineHeart />}</p>
+                    <p onClick={saveLocation} className=''>{like ? <p className='text-red-400'><AiFillHeart /></p> : <AiOutlineHeart />}</p>
                 </div>
 
                 <div className=" text-gray-400 absolute bottom-4 text-lg">
