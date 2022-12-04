@@ -3,6 +3,11 @@ import Card from "./components/Card";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import Row2 from "./components/Row2";
+import {Route, Routes} from 'react-router-dom'
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Account from "./pages/Account"
 
 
 function App() {
@@ -11,18 +16,14 @@ function App() {
     <>
 
       <NavBar />
-      <Hero />
-      
-      <div className="">
-        <div className=" h-[40px] text-2xl flex items-center justify-center">
-          <h1 className="mt-10 drop-shadow-md font-poppins">Dream Destinations</h1>
-        </div>
+      <Routes>
 
-        <div className="pb-10">
-          <Row2 apiURL="http://127.0.0.1:5000/" header="Popular" />
-          <Row2 apiURL="http://127.0.0.1:5000/cold" header="Cold" />
-        </div>
-      </div>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/account' element={<Account />} />
+
+      </Routes>
 
     </>
     

@@ -1,6 +1,6 @@
 import json
 from flask import Flask
-from data import api_data, cold_data
+from data import api_data, cold_data, hot_data
 
 
 app = Flask(__name__)
@@ -14,6 +14,10 @@ def index():
 @app.route('/cold')
 def cold():
     return json.dumps(cold_data)
+
+@app.route('/hot')
+def hot():
+    return json.dumps(hot_data)
 
 
 app.run()

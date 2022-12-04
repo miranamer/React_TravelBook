@@ -33,6 +33,10 @@ const Card = ({imageURL, country, city}) => {
                 <div className="top-4 text-white absolute right-4 text-3xl">
                     <p onClick={handleLike} className=''>{like ? <p className='text-red-400'><AiFillHeart /></p> : <AiOutlineHeart />}</p>
                 </div>
+
+                <div className=" text-gray-400 absolute bottom-4 text-lg">
+                    <p className='hover:text-white'>View More</p>
+                </div>
             
             </div> : null}
             
