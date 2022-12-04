@@ -3,11 +3,14 @@
 <h1>Video Demo => https://youtu.be/mNIRFqYbPXc</h1>
 <h1>Figma Concept Art: https://www.figma.com/file/zmOIt20i6rmbqtdC5lgpdg/React-Location-Concept?t=Z9RxfxCd2thf6pDP-0</h1>
 <h2>This React App allows you to save holiday locations of your choice. I built this using React JS and Tailwind CSS for the front end and Firebase for the backend.
-    Each user can save and delete their own destinations which can be viewed later. As I created this in 2 days, there are still more features which I would like to add</h2>
+    The API that is storing the images and data of the locations was built by myself in Python - Flask (As a result, there are not many locations). Each user can save and delete their own destinations which can be viewed later. As I created this in 2 days, there are still more features which I would like to add</h2>
 <h1>Future Features:</h1>
 <ul>
   <li>Connect to 'Weather Check' App for weather data</li>
   <li>Add Info For All Locations</li>
   <li>Connect Flight Booking API To Allow Users To Book Flights With Stripe</li>
   <li>Let Users Share Saved Locations On Social Media</li>
+  <li>Publicly Host Site</li>
+  <li>Add More Locations To My Flask API</li>
 </ul>
+<h2>As Of Now, This Is Using Localhost As I Built My Own Custom API. I may publicly host the API using ngrok to allow others to visit it.</h2>
