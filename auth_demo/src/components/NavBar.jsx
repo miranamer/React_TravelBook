@@ -28,7 +28,7 @@ const NavBar = () => {
             </div>
             {user?.email ?  <div className="flex gap-10 text-3xl mr-10">
               <Link to='/account'>
-                <h1 className="hover:cursor-pointer">{user?.email}</h1>
+                <h1 className="hover:cursor-pointer">Account</h1>
               </Link>
                 <h1 onClick={handleLogout} className="hover:cursor-pointer">Sign Out</h1>
             </div> : <div className="flex gap-10 text-3xl mr-10">

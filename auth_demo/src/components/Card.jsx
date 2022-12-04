@@ -3,12 +3,14 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../firebase';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import { useNavigate, Link } from 'react-router-dom';
 
-const Card = ({imageURL, country, city}) => {
+const Card = ({imageURL, country, city, info}) => {
 
     const [hover, setHover] = useState(false);
     const [like, setLike] = useState(false);
     const { user } = UserAuth();
+    const navigate = useNavigate();
 
     const locationID = doc(db, 'users', `${user?.email}`);
 
@@ -23,7 +25,8 @@ const Card = ({imageURL, country, city}) => {
             }),
           });
         } else {
-          alert('Please log in to save a movie');
+          navigate('/login')
+          alert('Please log in to save a location');
         }
       };
 
@@ -54,7 +57,9 @@ const Card = ({imageURL, country, city}) => {
                 </div>
 
                 <div className=" text-gray-400 absolute bottom-4 text-lg">
-                    <p className='hover:text-white'>View More</p>
+                    <Link to='/view' state={{ city: city, country: country, img: imageURL, info: info }}>
+                      <p className='hover:text-white'>View More</p>
+                    </Link>
                 </div>
             
             </div> : null}

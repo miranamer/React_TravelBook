@@ -25,7 +25,7 @@ const Row2 = ({apiURL, header}) => {
         </div>
         <div className="mt-10 flex gap-10 justify-center px-5">
           {countries && countries.map((item) => (
-              <Card imageURL={item["img"]} key={item["country"]} country={item['country']} city={item['city']} />
+              <Card imageURL={item["img"]} key={item["country"]} country={item['country']} city={item['city']} info={item['info']} />
           ))}
         </div>
 
