@@ -13,4 +13,4 @@
   <li>Publicly Host Site</li>
   <li>Add More Locations To My Flask API</li>
 </ul>
-<h2>As Of Now, This Is Using Localhost As I Built My Own Custom API. I may publicly host the API using ngrok to allow others to visit it.</h2>
+<h2>As Of Now, This Is Using Localhost As I Built My Own Custom API. I may publicly host the API using ngrok to allow others to visit it</h2>
